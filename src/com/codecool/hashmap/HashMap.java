@@ -54,6 +54,12 @@ public class HashMap {
         throw new IllegalArgumentException("No element with specified key!");
     }
 
+    public void clearAll() {
+        for (LinkedList<Element> list : elements) {
+            list.clear();
+        }
+    }
+
     private int getHash(String key) {
         return abs(key.hashCode() % bucketSize);
     }
