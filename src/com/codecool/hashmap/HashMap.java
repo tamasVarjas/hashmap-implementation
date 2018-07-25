@@ -41,6 +41,19 @@ public class HashMap {
         throw new IllegalArgumentException("No element with specified key!");
     }
 
+    public void remove(String key) {
+        int position = getHash(key);
+        LinkedList<Element> list = elements[position];
+
+        for (Element element : list) {
+            if (element.getKey().equals(key)) {
+                list.remove(element);
+                return;
+            }
+        }
+        throw new IllegalArgumentException("No element with specified key!");
+    }
+
     private int getHash(String key) {
         return abs(key.hashCode() % bucketSize);
     }
