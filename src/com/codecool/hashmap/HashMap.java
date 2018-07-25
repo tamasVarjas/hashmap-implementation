@@ -10,6 +10,12 @@ public class HashMap {
     private int bucketSize = 16;
     private LinkedList<Element>[] elements = new LinkedList[bucketSize];
 
+    public HashMap() {
+        for (int i = 0; i < bucketSize; i++) {
+            elements[i] = new LinkedList<>();
+        }
+    }
+
     public void add(String key, Integer value) {
         int position = getHash(key);
         LinkedList<Element> list = elements[position];
@@ -24,7 +30,7 @@ public class HashMap {
     }
 
     private int getHash(String key) {
-        return key.hashCode() % bucketSize;
+        return abs(key.hashCode() % bucketSize);
     }
 
     @Override
