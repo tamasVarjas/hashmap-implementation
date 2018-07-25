@@ -1,6 +1,9 @@
 package com.codecool.hashmap;
 
+import java.util.Arrays;
 import java.util.LinkedList;
+
+import static java.lang.Math.abs;
 
 public class HashMap {
 
@@ -22,6 +25,11 @@ public class HashMap {
 
     private int getHash(String key) {
         return key.hashCode() % bucketSize;
+    }
+
+    @Override
+    public String toString() {
+        return "{" + Arrays.toString(elements) + "}";
     }
 
 }
