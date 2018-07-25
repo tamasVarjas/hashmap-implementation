@@ -29,6 +29,18 @@ public class HashMap {
         list.add(newElement);
     }
 
+    public Integer getValue(String key) {
+        int position = getHash(key);
+        LinkedList<Element> list = elements[position];
+
+        for (Element element : list) {
+            if (element.getKey().equals(key)) {
+                return element.getValue();
+            }
+        }
+        throw new IllegalArgumentException("No element with specified key!");
+    }
+
     private int getHash(String key) {
         return abs(key.hashCode() % bucketSize);
     }
