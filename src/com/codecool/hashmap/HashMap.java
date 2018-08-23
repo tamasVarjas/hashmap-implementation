@@ -18,22 +18,22 @@ public class HashMap {
 
     public void add(String key, Integer value) {
         int position = getHash(key);
-        LinkedList<Element> list = elements[position];
+        var list = elements[position];
 
-        for (Element element : list) {
+        for (var element : list) {
             if (element.getKey().equals(key)) {
                 throw new IllegalArgumentException("Key already exists!");
             }
         }
-        Element newElement = new Element(key, value);
+        var newElement = new Element(key, value);
         list.add(newElement);
     }
 
     public Integer getValue(String key) {
         int position = getHash(key);
-        LinkedList<Element> list = elements[position];
+        var list = elements[position];
 
-        for (Element element : list) {
+        for (var element : list) {
             if (element.getKey().equals(key)) {
                 return element.getValue();
             }
@@ -43,9 +43,9 @@ public class HashMap {
 
     public void remove(String key) {
         int position = getHash(key);
-        LinkedList<Element> list = elements[position];
+        var list = elements[position];
 
-        for (Element element : list) {
+        for (var element : list) {
             if (element.getKey().equals(key)) {
                 list.remove(element);
                 return;
@@ -55,7 +55,7 @@ public class HashMap {
     }
 
     public void clearAll() {
-        for (LinkedList<Element> list : elements) {
+        for (var list : elements) {
             list.clear();
         }
     }
